@@ -1,6 +1,33 @@
 from cmu_graphics import *
 import random, math
 
+
+'''
+Feature List: 
+    1. Multiple screens - launch screen, info screen, and full game screen with
+    music that transitions between them without restarting
+
+    2. Block programming - right panel lets you build a Scratch-style program
+    for the rover to execute autonomously
+
+    3. BFS Pathfinding - rover navigates around obstacles, replans when new terrain
+    is revealed, and guarantees all POIs are reachable on map generation
+
+    4. Procedural Generation / Fog of War - map hidden until explored, terrain uses
+    smoothed noise, rocks/craters/POIs randomly placed
+
+    5. Rover movement animation - rotates toward movement direction, leaves a fading tire trail,
+    drawn entirely with rotated polygons
+
+    6. Other gameplay systems - battery drain/solar recharge, communication range, 
+    POI scanning, and data transmission back to lander
+
+To Grade:
+    - Launch the game, build a program on the right panel, and press RUN. 
+    - "Move" blocks will ask you to click a destination. Find the [!] POIs,
+        scan them, then return to the white circle to transmit. Press ? for in-game help and Escape to pause/return home.
+'''
+
 '''
  - General Notes
     - This is a game about CMU's lunar rover MoonRanger! It's a super cool project that I'm so lucky to be a part of the team.
@@ -160,7 +187,7 @@ def info_redrawAll(app):
         'the lunar surface. These icy resources could be ',
         'important for future astronauts and long-term lunar bases.',
         '',
-        'MoonRanger is built to drive autonomusly, meaning it can navigate',
+        'MoonRanger is built to drive autonomously, meaning it can navigate',
         'with little to no human control. Using cameras, sensors, and onboard',
         'CMU-developed software, it can avoid hazards, map terrain, and',
         'investigate scientific points-of-interest.',
@@ -853,6 +880,7 @@ def inCommRange(app):
 def manhattanDistance(x0, y0, x1, y1):
     #wikipedia page for manhattan distance is very well done
     #download the wikipedia app! its local map feature is great
+    #ok I had to modify it's now Chebyshev distance...
     return max(abs(x0-x1), abs(y0-y1))
     
 def revealAround(app):
