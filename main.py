@@ -241,7 +241,7 @@ def getPOIs(app):
     app.POIs = set()
     for row in range(app.rows):
         for col in range(app.cols):
-            if random.random() < 0.01: #3% chance of being a POI
+            if random.random() < 0.03: #3% chance of being a POI
                 if ((row,col) != (app.currRow, app.currCol) and 
                     (row,col) not in app.obstacles):
                         app.POIs.add((row,col))
