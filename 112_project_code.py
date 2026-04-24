@@ -23,6 +23,7 @@ Feature List:
     POI scanning, and data transmission back to lander
 
 To Grade:
+    - No explicit shortcuts should be needed
     - Launch the game, build a program on the right panel, and press RUN. 
     - "Move" blocks will ask you to click a destination. Find the [!] POIs,
         scan them, then return to the white circle to transmit. Press ? for in-game help and Escape to pause/return home.
