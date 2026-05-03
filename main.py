@@ -58,7 +58,7 @@ def onAppStart(app):
     app.cellHeight = app.boardHeight/app.rows
     app.cellBorderWidth = 0
     app.stepsPerSecond = 20
-    app.moveSpeed = 5
+    app.moveSpeed = 4
     app.maxBattery = 100
     app.solarRate = 0.1 #rate always refers to battery drain
     app.driveRate = 1.5
@@ -418,7 +418,7 @@ def drawSlider(app):
             x+width/2,y+45, fill = 'white',size = 13, bold = True)
     
 def drawRover(app):
-    #this was debuged using AI out of laziness, I hate drawing graphics
+    #this was debugged using AI out of laziness, I hate drawing graphics
     #but all core concepts were mine i just kept defining wrong variables
     #except for the first loop right below!
     for i in range(len(app.trail) -1):
@@ -953,7 +953,7 @@ def game_onMousePress(app, mouseX, mouseY):
         if not app.autonomy: app.path = []
         return
     i = whichBlockIsIn(app, mouseX, mouseY)
-    if len(app.program) < app.maxProgramLen:
+    if len(app.program) < app.maxProgramLen or i == 5:
         addBlockProgram(app,i, mouseX, mouseY)
         
         
@@ -1067,6 +1067,6 @@ def scanPOI(app):
     app.pendingTransmit.add((app.currRow, app.currCol))
     
 def main():
-    runAppWithScreens('initial', 700, 500)
+    runAppWithScreens('initial', 1400, 1000)
 
 main()
